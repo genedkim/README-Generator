@@ -60,6 +60,7 @@ const init = () => {
             // writeToFile(`${response.readmeName}.md`, generateMarkdown(response))
         })
         .then(() => console.log('Your README file is complete! Check your folder to take a look.'))
+        .catch((err) => console.error(err));
 }
 
 // Function call to initialize app
