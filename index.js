@@ -1,9 +1,7 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
 const questions = () => inquirer.prompt([
     {
         type: 'input',
@@ -27,6 +25,11 @@ const questions = () => inquirer.prompt([
     },
     {
         type: 'input',
+        name: 'test',
+        message: 'Please enter instructions for testing this project (if applicable).',
+    },
+    {
+        type: 'input',
         name: 'credits',
         message: 'Please list your collaborators with links to their GitHub profiles and/or the creators of any third party assets used for this project.',
     },
@@ -42,14 +45,10 @@ const questions = () => inquirer.prompt([
     //     message: 'Please create a name for your README file (if left blank the file name will be defaulted to README.md)',
     // }
 
+    // Note: tried to create code above to allow for user to customize the readme file name but I wasn't able to use template literals within fs.writeFile() so I defaulted the README file name to EXAMPLE.md so it wouln't overwrite my current README.md
+
 ]);
 
-// TODO: Create a function to write README file
-// const writeToFile = (fileName, data) => {
-//     fs.writeFile(fileName, data);
-// }
-
-// TODO: Create a function to initialize app
 const init = () => {
     console.log('Welcome to Gene\'s README generator. Please answer the following prompts. Once completed the generator will create your custom README file.');
     questions()
@@ -58,11 +57,10 @@ const init = () => {
             // if (response.readmeName = '') {
             //     response.readmeName = 'README'
             // }
-            // let readmeNameFull = response.readmeName + '.md'
+
             fs.writeFile('EXAMPLE.md', generateMarkdown(response), (err) =>
             err ? console.error(err) : console.log('Your README file is complete! Check your root folder to take a look.'))
         })
 }
 
-// Function call to initialize app
 init();

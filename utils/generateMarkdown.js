@@ -103,12 +103,15 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
+  ## Test
+  ${data.test}
+
   ## Credits
   ${data.credits}
 
   ## License
   ${renderLicenseBadge(data.license)} 
-  
+
   This project is licensed under ${data.license} (click the badge above for further information).
 `;
 }
